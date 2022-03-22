@@ -3,7 +3,8 @@ import {
 } from '../persistence/entities/booking';
 import {
     addBooking,
-    getBooking
+    getBooking,
+    getBookings
 } from '../persistence/repository/bookingsRepo'
 
 /*
@@ -27,4 +28,8 @@ export const createBooking = async (reqBody) => {
 
 export const readBooking = async (id) => {
     return await getBooking(id);
+}
+
+export const readBookings = async () => {
+    return await getBookings();
 }
