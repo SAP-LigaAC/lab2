@@ -1,0 +1,56 @@
+_schema-version: "3.1"
+ID: flight-bookings
+version: 1.0.0
+description: "flight-bookings REST example app"
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install --production
+
+modules:
+  # --------------------- SERVER MODULE ------------------------
+  - name: flight-bookings
+    # ------------------------------------------------------------
+    type: javascript.nodejs
+    path: ./
+    parameters:
+      memory: 1024M
+      disk-quota: 1024M
+    properties:
+      LOG_LEVEL: debug
+      EXIT: 1 # required by deploy.js task to terminate
+      SAP_JWT_TRUST_ACL: [{ "clientid": "*", "identityzone": "*" }]
+      OPTIMIZE_MEMORY: true
+    build-parameters:
+      ignore:
+        [
+          ".git/",
+          ".gitignore",
+          ".gitattributes",
+          "node_modules"
+        ]
+    requires:
+      - name: booking-hana
+      - name: bookings-logging
+
+    provides:
+      - name: flight-bookings-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+
+resources:
+  - name: bookings-logging
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: application-logs
+      service-plan: lite
+
+  - name: booking-hana
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: hana
+      service-plan: hdi-shared
