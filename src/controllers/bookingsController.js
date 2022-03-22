@@ -1,7 +1,6 @@
 import {
     createBooking,
-    readBooking,
-    readBookings
+    readBooking
 } from "../services/bookingsServices";
 
 import {
@@ -51,19 +50,6 @@ export const viewBooking = async (req, res, next) => {
             log.info(`no booking found with id ${id}`);
             res.sendStatus(StatusCodes.NOT_FOUND);
         }
-    } catch (error) {
-        log.info(error.message);
-        next(error);
-    }
-};
-
-export const viewBookings = async (req, res, next) => {
-    log.info(`received view bookings request`);
-    try {
-        const bookings = await readBookings();
-        // other service call (or same service, different functions can go here)
-
-        res.send(bookings);
     } catch (error) {
         log.info(error.message);
         next(error);
