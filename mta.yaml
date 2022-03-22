@@ -23,7 +23,6 @@ modules:
     properties:
       LOG_LEVEL: debug
       EXIT: 1 # required by deploy.js task to terminate
-      SAP_JWT_TRUST_ACL: [{ "clientid": "*", "identityzone": "*" }]
       OPTIMIZE_MEMORY: true
     build-parameters:
       ignore:
