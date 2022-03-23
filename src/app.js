@@ -39,11 +39,11 @@ export const initializeApp = () => {
 
 function _logErrors(err, req, res, next) {
     log.error(`ERROR occurred for request: ${req.originalUrl}`);
-    log.error(err.stack);
+    log.error(err);
     next(err);
 }
 
 function _errorHandler(err, req, res, next) {
     res.status(err.code? err.code : StatusCodes.INTERNAL_SERVER_ERROR);
-    res.send(err.message);
+    res.send(err.message? err.message : err);
 }

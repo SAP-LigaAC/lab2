@@ -8,12 +8,12 @@ export const addBooking = async (booking) => {
   const randomID = Math.floor(Math.random() * (MAX_ID - MIN_ID + 1)) + MIN_ID;
   try {
 
-    await processSQL(`INSERT INTO REPLACE_SCHEMA."Booking" VALUES('${booking.id}', '${booking.bookingStatus}', '${booking.bookingDate}','${booking.flightDate}','${booking.flightDestination}','${randomID}')`);
-    await processSQL(`INSERT INTO REPLACE_SCHEMA."Passenger" VALUES('${randomID}','${passenger.lastName}','${passenger.firstName}','${passenger.emailAddress}','${passenger.phoneNumber}')`);
+  await processSQL(`INSERT INTO REPLACE_SCHEMA."Passenger" VALUES('${randomID}','${passenger.lastName}','${passenger.firstName}','${passenger.emailAddress}','${passenger.phoneNumber}')`);
+  await processSQL(`INSERT INTO REPLACE_SCHEMA."Booking" VALUES('${booking.id}', '${booking.bookingStatus}', '${booking.bookingDate}','${booking.flightDate}','${booking.flightDestination}','${randomID}')`);
 
   } catch (error) {
-    console.log('!!!!!!error=',error.message);
-    if (error.message && error.message.includes('unique constraint violated')){
+    const uniqueConstraintViolatedMessage = 'unique constraint violated';
+    if (error.message && error.message.includes(uniqueConstraintViolatedMessage) || error.includes(uniqueConstraintViolatedMessage)){
       const newErr = new Error();
       newErr.code = StatusCodes.CONFLICT;
       newErr.message = 'A booking with the same ID already exists';

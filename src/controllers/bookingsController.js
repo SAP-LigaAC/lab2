@@ -91,6 +91,6 @@ const _validateRequest = async (req) => {
         .run(req);
 
     const validationResults = validationResult(req);
-    console.info(`validation results: ${JSON.stringify(validationResults)}`);
+    log.info(`validation results: ${JSON.stringify(validationResults)}`);
     return validationResults;
 };
