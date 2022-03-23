@@ -6,8 +6,8 @@ export const addBooking = async (booking) => {
   const passenger = booking.getPassenger();
   const randomID = Math.floor(Math.random() * (MAX_ID - MIN_ID + 1)) + MIN_ID;
 
-  await processSQL(`INSERT INTO REPLACE_SCHEMA."Booking" VALUES('${booking.id}', '${booking.bookingStatus}', '${booking.bookingDate}','${booking.flightDate}','${booking.flightDestination}','${randomID}')`);
   await processSQL(`INSERT INTO REPLACE_SCHEMA."Passenger" VALUES('${randomID}','${passenger.lastName}','${passenger.firstName}','${passenger.emailAddress}','${passenger.phoneNumber}')`);
+  await processSQL(`INSERT INTO REPLACE_SCHEMA."Booking" VALUES('${booking.id}', '${booking.bookingStatus}', '${booking.bookingDate}','${booking.flightDate}','${booking.flightDestination}','${randomID}')`);
 
 };
 
