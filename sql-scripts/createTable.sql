@@ -15,5 +15,5 @@ CREATE TABLE "Booking" (
 	"FlightDestination" VARCHAR(20),
     "Passenger_ID" INTEGER NOT NULL,
 PRIMARY KEY (ID),
-FOREIGN KEY ("Passenger_ID") REFERENCES "Passenger" ON DELETE CASCADE;
+FOREIGN KEY ("Passenger_ID") REFERENCES "Passenger" ON DELETE CASCADE
 );
