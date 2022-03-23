@@ -37,7 +37,7 @@ modules:
       - name: bookings-logging
 
     provides:
-      - name: flight-bookings-api # required by consumers of CAP services (e.g. approuter)
+      - name: flight-bookings-api # required by consumers  (e.g. approuter)
         properties:
           srv-url: ${default-url}
 
