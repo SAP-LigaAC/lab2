@@ -33,7 +33,7 @@ modules:
           "node_modules"
         ]
     requires:
-      - name: booking-hana
+      - name: bookings-hana
       - name: bookings-logging
 
     provides:
@@ -48,7 +48,7 @@ resources:
       service: application-logs
       service-plan: lite
 
-  - name: booking-hana
+  - name: bookings-hana
     type: org.cloudfoundry.managed-service
     parameters:
       service: hana
