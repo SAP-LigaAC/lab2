@@ -53,6 +53,7 @@ then login using `cf login`. Enter the details as provided during registration.
  - `cf start {app_name}` - starts a stopped application
  - `cf logs {app_name}`, `cf logs {app_name} --recent` - display the application logs (realtime, recent)
  - `cf env {app_name}` - display the application user and system provided environment variables
+ - `cf services` - display the service instances in your space
 
 #### Clone Lab2 GitHub repository
 
@@ -71,15 +72,22 @@ If the `git clone` command fails, then you will have to:
 
 
 ### 3. App usage
-LAB2 application is a basic example of an Express JS web server application that provides REST APIs to the end users.
-Persistence layer is provided by SAP HANA Cloud HANA DB.
+LAB2 application is a basic example of a cloud multi target application, built using Express JS web server and providing REST APIs to the end users.Persistence layer is provided by SAP HANA Cloud HANA DB.
+
+A multi-target application (MTA) is comprised of multiple software pieces (“modules”) which all share a common lifecycle for development and deployment. These modules can be written in different technologies and deployed to different targets respectively, but they all serve (different aspects of) a particular purpose for the application’s users.
+
+#### Create tables for the data model entitites
+Connect to Cockpit and use HANA DB Explorer to create the 'Passenger' and 'Booking" tables, by opening an SQL Console and running the `CREATE TABLE` commands from `sql-scripts\createTable.sql`.
 
 #### Deploy the application in the BTP account
+[Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/configuration/ "Cloud MTA Build Tool") has been used for building the application archive.
 
 ```
 npm run deploy-cloud
 
 ```
+
+After deploying the app, go to cockpit and check the app services bindings.
 #### Test the app
 
 Use POSTMAN to import the lab's provided POSTMAN collection and environmnet variables.
@@ -117,4 +125,5 @@ npm start
 - https://www.sap.com/documents/2021/09/7476f8c4-f77d-0010-bca6-c68f7e60039b.html
 - https://developers.sap.com/tutorials/cp-trial-quick-onboarding.html
 - https://developers.sap.com/tutorials/btp-cockpit-instances.html
+
 
