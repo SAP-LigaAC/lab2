@@ -116,6 +116,7 @@ npm start
 - https://www.npmjs.com/package/express
 - https://www.npmjs.com/package/express-validator
 - https://www.npmjs.com/package/body-parser
+- https://www.npmjs.com/package/cf-nodejs-logging-support
 - https://www.npmjs.com/package/http-status-codes
 - https://www.npmjs.com/package/@sap/hana-client
 - https://www.npmjs.com/package/@sap/xsenv
