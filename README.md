@@ -30,8 +30,8 @@ This is a simplified picture of the domain model you have in the Cloud Foundry E
 
 SAP HANA Cloud is a cloud-native database-as-a-service (DBaaS) solution with intelligent multi-model capabilities and support for application development.
 SAP HANA Cloud is composed of:
-- SAP HANA Cloud, HANA database -in memory data storage
-- SAP HANA Cloud, data lake
+- SAP HANA Cloud, HANA database - in memory data storage
+- SAP HANA Cloud, data lake - cost-effective service to store large data sets
 
 [Create an instance of SAP HANA Cloud HANA DB](https://developers.sap.com/tutorials/hana-cloud-deploying.html "Create HANA Cloud DB instance")
 
