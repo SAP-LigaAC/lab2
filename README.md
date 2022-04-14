@@ -47,7 +47,7 @@ then login using `cf login`. Enter the details as provided during registration.
 
 NOTE.
 If you're unable to login, due to ``` unathorized  invalid_grant ``` error, then use the option --sso: 
-``` cf login -- sso ```. Follow the link provided on the terminal to generate the token(temporary passcode) which is used to login to cf.
+``` cf login --sso ```. Follow the link provided on the terminal to generate the token(temporary passcode) which is used to login to cf.
 
 
 #### CF CLI useful Commands
