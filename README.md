@@ -45,6 +45,11 @@ cf api https://api.cf.us10.hana.ondemand.com
 ```
 then login using `cf login`. Enter the details as provided during registration.
 
+NOTE.
+If you're unable to login, due to ``` unathorized  invalid_grant ``` error, then use the option --sso: 
+``` cf login -- sso ```. Follow the link provided on the terminal to generate the token(temporary passcode) which is used to login to cf.
+
+
 #### CF CLI useful Commands
 
  - `cf target` - displays the default organization and space for your account. In case of multiple organizations, it allows you to set a default organization (`-o`) and space (`-s`) within the organization.
